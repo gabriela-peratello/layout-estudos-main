@@ -41,3 +41,5 @@ export const iniciarMenu = () => {
         document.addEventListener('keydown', fecharComEsc);
     });
 };
+
+iniciarMenu()
