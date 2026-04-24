@@ -1,0 +1,66 @@
+Anotações - Trabalhando com erros e suas versões
+
+!! --- "Anna" --- !!
+Transformar em função!
+VERSÃO 01.0 -
+let anna = 5
+try {
+    anna(5)
+}
+
+VERSÃO 01.2 - CORRIGIDA ------------------------------------------------
+let anna = (numero) => console.log(numero * 5);
+try {
+    console.log(anna(5))
+}
+
+VERSÃO 02.3 - CORRIGIDA -----------------------------------------------
+let numero = 'senai';
+try {
+    numero = numero.toUpperCase();
+    console.log(numero)}
+
+
+**************************** ERROS *************************************
+
+VERSÃO 02.0 ------------------------------------------------------------
+let anna = (numero) => console.log(numero * 5);
+try {
+    new Array(-2)
+    numero.toPrecision(500);
+} catch(erro)
+
+VERSÃO 02.1 -----------------------------------------------------------
+const numero
+try {
+    numero.toPrecision(500);
+} catch(erro)
+
+VERSÃO 02.3------------------------------------------------------------
+let anna = (numero) => console.log(numero * 5);
+var numero = 15;
+try {
+    numero.toUpperCase();
+} catch(erro)
+
+VERSÃO 03.0 -----------------------------------------------------------
+let numero = 'senai';
+try {
+   let x = Math.round(4.6;)}
+
+VERSÃO 04.0 ----------------------------------------------------------
+let result = "Not Active.";
+let isActive = false;
+console.log(result, isActive)
+if (isActive = true) {
+  let result = "Active!";
+}
+console.log(result, isActive)
+
+//////////////////////////// TAREFA /////////////////////////////////////
+/* Testando a função: carregarComponente
+01 - Criar o componente que será injetado
+02 - Criar o elemento que irá receber o componente (test.html)
+03 - Capturar o elemento que irá receber o componente( no test.html)
+04 - Utilizar a função para carregar o componente */
+

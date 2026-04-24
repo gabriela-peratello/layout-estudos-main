@@ -1,9 +1,17 @@
-let x =  5;
-let y = 'banana'
+isActive = 0;
+let result = "Not Active.";
+let isActive = false;
+console.log(result, isActive)
+if (isActive = true) {
+  let result = "Active!";
+}
+console.log(result, isActive)
+
 
 try {
-    x = y + 1
 
+
+     
 } catch(erro){
 
     let text = `
@@ -15,3 +23,5 @@ try {
     document.body.innerHTML = text
 
 }
+
+
