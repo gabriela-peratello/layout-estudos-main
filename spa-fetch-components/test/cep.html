@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código de Endereço Postal</title>
+
+    <style>
+        body {
+            background-color: rgb(240, 240, 240);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        .principal {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: white;
+        }
+
+        input, button {
+            display: block;
+            margin: 10px auto;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body class="container__corpo">
+    <div class="principal">
+        <h1>Consulte o CEP</h1>
+
+        <input type="number" id="cep" placeholder="Digite o CEP aqui">
+
+        <button id="btnThen">Buscar CEP com .then</button>
+        <button id="btnAsync">Buscar CEP com async/await</button>
+    </div>
+</body>
+</html>

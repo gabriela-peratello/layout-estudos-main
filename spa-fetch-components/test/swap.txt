@@ -64,3 +64,63 @@ console.log(result, isActive)
 03 - Capturar o elemento que irá receber o componente( no test.html)
 04 - Utilizar a função para carregar o componente */
 
+========================================================== 30/04/2026 =================================================================
+TESTE COM ERROS E VALIDAÇÕES
+Verificar a idade:
+
+try {
+  let idade = -5
+  if (idade < 0) {
+    let erro = new Error('Idade inválida')
+    erro.codigo = 1001;
+    erro.tipo = 'VALIDACAO'
+    throw erro;
+  }
+} catch (erro) {
+  let text = `
+    <strong>Nome do erro:</strong> ${erro.name} <br />
+    <strong>Mensagem:</strong> ${erro.message} <br />
+    <strong>Código:</strong> ${erro.codigo} <br />
+    <strong>Tipo::</strong> ${erro.tipo} <br />
+    <strong>Stack:</strong> <span>${erro.stack}</span>`;
+  document.body.innerHTML = text
+}
+const carregarComponente = async (caminho, container) => {
+  try {
+    const resposta = await fetch(caminho);
+    if (!resposta.ok) {
+      throw new Error('Erro ao carregar componente.')
+    }
+    const html = await resposta.text();
+    container.innerHTML = html
+  } catch (erro) {
+    console.warn(erro)
+  }
+};
+
+-------------------------------------------------------------------------------------------------------------------------------
+FUNÇÃO GERADORA DE ERRO
+
+// Criar função geradora de erro
+const erroCriado = (mensagem, codigo, tipo) => {
+  let erro = new Error(mensagem)
+  erro.codigo = codigo;
+  erro.tipo = tipo;
+  return erro;
+};
+try {
+  let saldo = 15
+  if (saldo < 200) {
+    let erro = erroCriado('Saldo insuficiente', 67, 'Financeiro')
+    throw erro;
+  }
+} catch (erro) {
+  console.log(erro)
+};
+
+-------------------------------------------------------------------------------------------------------------------------------------
+DIFERENTES MANEIRAS DE ESCREVER UM Código
+const body = document.querySelector('body')                       
+const end = 'c-test.html'                                        
+carregarComponente(end, body);                                  
+carregarComponente('c-test.html', document.querySelector('body')) 

@@ -1,27 +1,12 @@
-isActive = 0;
-let result = "Not Active.";
-let isActive = false;
-console.log(result, isActive)
-if (isActive = true) {
-  let result = "Active!";
-}
-console.log(result, isActive)
+
+// Criar uma requisição HTTP com fetch e .then
+// 1° then -> converte o JSON para objeto JavasCript e extrai dados
+// 2° then -> exibe os dados extraidos
+fetch('https://viacep.com.br/ws/01001000/json/')
+.then((resposta) => {if(!resposta.ok){throw new Error ("Código de Endereço Postal incorreto.")} return resposta.json()})
+.then((dados) => {console.log(dados)})
+.catch((error) => {console.warn(error)});
 
 
-try {
-
-
-     
-} catch(erro){
-
-    let text = `
-    <strong>Nome do erro:</strong> ${erro.name} <br />
-    <strong>Mensagem:</strong> ${erro.message} <br />
-    <strong>Stack:</strong> <span>${erro.stack}</span>
-    `;
-
-    document.body.innerHTML = text
-
-}
 
 
