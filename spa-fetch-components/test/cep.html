@@ -1,9 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="cep-v.0.1.2.js" defer ></script>
+
+    <script src="cep-v.0.1.2.js" defer>
+        // Capturando os botões 
+        const btnThen = document.getElementById('btnThen')
+        const btnAsync = document.getElementById('btnAsync')
+
+        // Criar uma requisição HTTP com fetch e .then
+        // 1° then -> converte o JSON para objeto JavaScript e extrai dados
+        // 2° then -> exibe os dados extraidos
+
+        // Adicionando o event listener
+        btnThen.addEventListener('click', () => {
+            // tem q ser dentro da função
+            const cep = document.getElementById('cep').value;
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then((resposta) => { if (!resposta.ok) { throw new Error("Código de Endereço Postal incorreto.") } return resposta.json() })
+                .then((dados) => { console.log(dados) })
+                .catch((error) => { console.warn(error) });
+
+        })
+
+        /* Criar uma requisição HTTP com fecth e async/await */
+        // Adicionando o event listener
+        btnAsync.addEventListener('click', async () => {
+            const cep = document.getElementById('cep').value
+            try {
+                const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                if (!resposta.ok) { throw new Error('Erro na requisição'); }
+                const dados = await resposta.json();
+                console.log(dados);
+            } catch (erro) {
+                console.error('Erro:', erro.message);
+            }
+        });
+
+    </script>
+
     <title>Código de Endereço Postal</title>
 
     <style>
@@ -16,8 +53,9 @@
             height: 100vh;
             margin: 0;
             font-family: sans-serif;
-            
+
         }
+
         .principal {
             text-align: center;
             padding: 20px;
@@ -26,10 +64,9 @@
             background: rgb(255, 255, 255);
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.76);
         }
-
- 
     </style>
 </head>
+
 <body class="container__corpo">
     <div class="principal">
         <h1>Consulte o CEP</h1>
@@ -39,5 +76,7 @@
         <button id="btnThen">Buscar CEP com .then</button>
         <button id="btnAsync">Buscar CEP com async/await</button>
     </div>
+
 </body>
+
 </html>
